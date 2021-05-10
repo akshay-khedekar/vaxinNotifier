@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CheckAvailabilityComponent } from './check-availability/check-availability.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FetchApiService } from './fetch-api.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CheckAvailabilityComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FetchApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
