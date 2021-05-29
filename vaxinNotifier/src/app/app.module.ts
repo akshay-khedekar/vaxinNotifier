@@ -7,6 +7,7 @@ import { CheckAvailabilityComponent } from './check-availability/check-availabil
 import { HttpClientModule } from '@angular/common/http';
 import { FetchApiService } from './fetch-api.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [FetchApiService],
   bootstrap: [AppComponent]

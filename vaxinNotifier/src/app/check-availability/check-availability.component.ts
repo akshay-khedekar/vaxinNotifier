@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiService} from '../fetch-api.service';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class CheckAvailabilityComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      "pin":[]
+      "pin":["",Validators.required,Validators.maxLength(6)]
     })
     this.fetchApiService.fetchData().subscribe(
       data => {
