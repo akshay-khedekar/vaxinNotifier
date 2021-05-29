@@ -8,7 +8,7 @@ export class FetchApiService {
 
   constructor(private http : HttpClient) { }
 
-  public fetchData(){
-    return this.http.get("https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode=411007&date=10-05-2021")
+  public fetchData(pin,date){
+    return this.http.get(`https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${pin}&date=${date}`)
   }
 }

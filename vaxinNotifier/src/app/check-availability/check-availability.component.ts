@@ -15,22 +15,30 @@ export class CheckAvailabilityComponent implements OnInit {
   ) { }
   public form: FormGroup;
   public date;
+  public showResult = false;
+  public centerinfo;
   ngOnInit() {
     this.form = this.fb.group({
       "pin":[""],
       "date":[""]
     })
-    this.fetchApiService.fetchData().subscribe(
-      data => {
-        console.log("data");
-        console.log(data);
-      },
-      error => {
-
-      }
-    )
   }
 onSubmit(){
+  let pin = this.form.value.pin
+  let date = this.form.value.date.day+ "-" + this.form.value.date.month + "-" + this.form.value.date.year
+
+  this.fetchApiService.fetchData(pin, date).subscribe(
+    data => {
+      this.showResult = true
+      console.log("data");
+      console.log(data);
+      this.centerinfo = data
+    
+    },
+    error => {
+
+    }
+  )
   console.log("form");
   console.log(this.form)
 }
