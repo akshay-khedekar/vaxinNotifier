@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiService} from '../fetch-api.service';
+import { FormBuilder,FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-check-availability',
@@ -8,9 +10,15 @@ import { FetchApiService} from '../fetch-api.service';
 })
 export class CheckAvailabilityComponent implements OnInit {
 
-  constructor(private fetchApiService:FetchApiService) { }
+  constructor(private fetchApiService:FetchApiService,
+              private fb: FormBuilder 
+  ) { }
+  public form: FormGroup;
 
   ngOnInit() {
+    this.form = this.fb.group({
+      "pin":[]
+    })
     this.fetchApiService.fetchData().subscribe(
       data => {
         console.log("data");
@@ -21,5 +29,8 @@ export class CheckAvailabilityComponent implements OnInit {
       }
     )
   }
-
+onSubmit(){
+  console.log("form");
+  console.log(this.form)
+}
 }

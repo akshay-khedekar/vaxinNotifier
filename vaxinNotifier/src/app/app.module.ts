@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CheckAvailabilityComponent } from './check-availability/check-availability.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FetchApiService } from './fetch-api.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { FetchApiService } from './fetch-api.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [FetchApiService],
   bootstrap: [AppComponent]
