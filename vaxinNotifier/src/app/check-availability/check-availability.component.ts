@@ -30,10 +30,8 @@ onSubmit(){
   this.fetchApiService.fetchData(pin, date).subscribe(
     data => {
       this.showResult = true
-      console.log("data");
-      console.log(data);
       this.centerinfo = data
-    
+      console.log(this.centerinfo.centers);
     },
     error => {
 

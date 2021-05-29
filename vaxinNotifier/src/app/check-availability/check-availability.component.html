@@ -70,15 +70,14 @@
 </div>
 
 <div *ngIf="showResult">
-	<!-- {{centerinfo.centers}} -->
-<div *ngFor="let center of centerinfo.centers.centers"></div>
-{{center}}
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+<div *ngFor="let center of centerinfo.centers">
+<div class="card mb-3" style="max-width: 18rem;">
 	<div class="card-header">{{center.center_id}}</div>
 	<div class="card-body">
 		<h5 class="card-title">{{center.name}}</h5>
 		<h6 class="card-text">{{center.fee_type}}</h6>
 	</div>
+</div>
 </div>
 </div>
 
