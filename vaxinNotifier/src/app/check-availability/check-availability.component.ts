@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiService} from '../fetch-api.service';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -14,15 +14,17 @@ export class CheckAvailabilityComponent implements OnInit {
               private fb: FormBuilder 
   ) { }
   public form: FormGroup;
-  public date;
   public showResult = false;
   public centerinfo;
   ngOnInit() {
     this.form = this.fb.group({
-      "pin":[""],
-      "date":[""]
+      "pin":["",[Validators.required,Validators.minLength(6)]],
+      "date":["",Validators.required]
     })
   }
+  get pin(){return this.form.get('pin')}
+  get date(){return this.form.get('date')}
+
 onSubmit(){
   let pin = this.form.value.pin
   let date = this.form.value.date.day+ "-" + this.form.value.date.month + "-" + this.form.value.date.year
